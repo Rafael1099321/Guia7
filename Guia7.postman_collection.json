@@ -1,0 +1,245 @@
+{
+  "info": {
+    "name": "Guía 7 - Express + MongoDB (10 endpoints)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "productoId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1. POST Crear producto",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const j = pm.response.json();",
+              "pm.collectionVariables.set(\"productoId\", j.data._id);",
+              "pm.test(\"201 Created\", () => pm.response.to.have.status(201));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Laptop Dell XPS\",\n  \"precio\": 4500000,\n  \"categoria\": \"Tecnología\",\n  \"stock\": 12\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/productos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "productos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "2. GET Listar productos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/productos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "productos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "3. GET Producto por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/productos/{{productoId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "productos",
+            "{{productoId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "4. PUT Actualizar producto",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Laptop Dell XPS 15\",\n  \"precio\": 4800000,\n  \"categoria\": \"Tecnología\",\n  \"stock\": 10\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/productos/{{productoId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "productos",
+            "{{productoId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "6. GET Productos por categoría",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/productos/categoria/Tecnología",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "productos",
+            "categoria",
+            "Tecnología"
+          ]
+        }
+      }
+    },
+    {
+      "name": "7. POST Registro de usuario",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Ana Pérez\",\n  \"email\": \"ana@correo.com\",\n  \"password\": \"secreto123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/usuarios/registro",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "usuarios",
+            "registro"
+          ]
+        }
+      }
+    },
+    {
+      "name": "8. POST Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"ana@correo.com\",\n  \"password\": \"secreto123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/usuarios/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "usuarios",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "9. GET Listar usuarios",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/usuarios",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "usuarios"
+          ]
+        }
+      }
+    },
+    {
+      "name": "10. GET Estadísticas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/reportes/estadisticas",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "reportes",
+            "estadisticas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "5. DELETE Eliminar producto",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/productos/{{productoId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "productos",
+            "{{productoId}}"
+          ]
+        }
+      }
+    }
+  ]
+}

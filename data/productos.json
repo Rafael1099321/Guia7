@@ -1,0 +1,6 @@
+[
+  { "nombre": "Laptop Dell XPS", "precio": 4500000, "categoria": "Tecnología", "stock": 12 },
+  { "nombre": "Mouse inalámbrico", "precio": 85000, "categoria": "Tecnología", "stock": 40 },
+  { "nombre": "Maleta de cabina", "precio": 220000, "categoria": "Viajes", "stock": 25 },
+  { "nombre": "Almohada de viaje", "precio": 45000, "categoria": "Viajes", "stock": 60 }
+]

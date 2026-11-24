@@ -1,0 +1,20 @@
+{
+  "name": "guia7-api",
+  "version": "1.0.0",
+  "description": "Gu\u00eda 7 SENA ADSO - API REST con Node.js, Express y MongoDB (Mongoose)",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "seed": "node src/utils/seed.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.13.0"
+  }
+}
